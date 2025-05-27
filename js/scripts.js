@@ -134,9 +134,10 @@
 window.addEventListener('DOMContentLoaded', event => {
   const path = window.location.pathname;
 
-  // كود صفحات smart.html و fun.html المشتركة
+  // صفحات smart.html و fun.html
   if (path.includes("smart.html") || path.includes("fun.html")) {
-    $(function() {
+    $(function () {
+      // أزرار الاقتباس والنكتة والصورة
       $("#toggleTextBtn").click(function () {
         $("#quoteBox").slideToggle("slow", function () {
           if ($(this).is(":visible")) {
@@ -165,15 +166,42 @@ window.addEventListener('DOMContentLoaded', event => {
         $(".content-box").slideToggle(600);
       });
 
+      // خصائص صفحة smart فقط
       if (path.includes("smart.html")) {
+        // تبديل الثيم
         $("#themeSwitcher").change(function () {
           $("body").toggleClass("dark-mode");
+        });
+
+        // رسالة ترحيب مباشرة
+        $("#username").keyup(function () {
+          let name = $(this).val();
+          if (name) {
+            $("#greeting").html("Hello, " + name + "! I See You <span class='emoji-small'>👀</span>");
+          } else {
+            $("#greeting").html("Welcome! <span class='emoji-small'>🌟</span>");
+          }
+        });
+
+        // تأثير hover
+        $("#greeting").hover(
+          function () {
+            $(this).css("color", "#ff4500").css("font-weight", "bold");
+          },
+          function () {
+            $(this).css("color", "").css("font-weight", "");
+          }
+        );
+
+        // أنيميشن عند الضغط
+        $("#greeting").click(function () {
+          $(this).fadeOut(300).fadeIn(300);
         });
       }
     });
   }
 
-  // كود صفحة about.html فقط
+  // صفحة about.html
   if (path.includes("about.html")) {
     // Theme switcher
     const themeToggle = document.getElementById("themeSwitcher");
@@ -183,7 +211,7 @@ window.addEventListener('DOMContentLoaded', event => {
       });
     }
 
-    // Show more toggle function (يمكنك استدعاؤها من html)
+    // Show more sections
     window.toggleMore = function (id) {
       const moreText = document.getElementById(id);
       if (moreText) {
@@ -191,7 +219,7 @@ window.addEventListener('DOMContentLoaded', event => {
       }
     };
 
-    // Animate sections on scroll
+    // Scroll animation
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {

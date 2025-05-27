@@ -6,7 +6,6 @@
     <title>Smart Interaction</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.6.0.min.js"></script>
     <style>
         .emoji-small { font-size: 1em; }
     </style>
@@ -14,7 +13,7 @@
 <body>
 
     <!-- Navigation Bar -->
-    <header>
+       <header>
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="#">My Smart Profile</a>
@@ -24,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About me</a>
@@ -36,10 +35,10 @@
                             <a class="nav-link" href="portfolio.html">portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="fun.html">Fun Page</a>
+                            <a class="nav-link" href="fun.html">Fun </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  active" href="smart.html"> Smart Interaction Page</a>
+                            <a class="nav-link" href="smart.html"> Smart Interaction </a>
                         </li>
                     </ul>
                 </div>
@@ -61,38 +60,42 @@
             <p id="greeting" class="mt-2">Welcome! <span class="emoji-small">🌟</span></p>
         </div>
 
-    <script>
-        $(document).ready(function () {
-  //  "smart.html"
-  if (window.location.pathname.includes("smart.html")) {
-    $("#themeSwitcher").change(function () {
-      $("body").toggleClass("dark-mode");
-    });
-  }
-});
-        $(document).ready(function() {
-            // Live Greeting with Emoji Change
-            $("#username").keyup(function() {
-                let name = $(this).val();
-                if (name) {
-                    $("#greeting").html("Hello, " + name + "! I See You <span class='emoji-small'>👀</span>");
-                } else {
-                    $("#greeting").html("Welcome! <span class='emoji-small'>🌟</span>");
-                }
-            });
+    <script src="js/jquery-3.6.0.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
 
-            // Hover Effect on Greeting
-            $("#greeting").hover(
-                function() { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
-                function() { $(this).css("color", "").css("font-weight", ""); }
-            );
+//         $(document).ready(function () {
+//   //  "smart.html"
+//   if (window.location.pathname.includes("smart.html")) {
+//     $("#themeSwitcher").change(function () {
+//       $("body").toggleClass("dark-mode");
+//     });
+//   }
+// });
+//         $(document).ready(function() {
+//             // Live Greeting with Emoji Change
+//             $("#username").keyup(function() {
+//                 let name = $(this).val();
+//                 if (name) {
+//                     $("#greeting").html("Hello, " + name + "! I See You <span class='emoji-small'>👀</span>");
+//                 } else {
+//                     $("#greeting").html("Welcome! <span class='emoji-small'>🌟</span>");
+//                 }
+//             });
 
-           // Animate Greeting on Click
-$("#greeting").click(function() {
-    $(this).fadeOut(300).fadeIn(300); //
-});
-        });
-    </script>
+//             // Hover Effect on Greeting
+//             $("#greeting").hover(
+//                 function() { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
+//                 function() { $(this).css("color", "").css("font-weight", ""); }
+//             );
+
+//            // Animate Greeting on Click
+// $("#greeting").click(function() {
+//     $(this).fadeOut(300).fadeIn(300); //
+// });
+//         });
+    
 
 </body>
 </html>
